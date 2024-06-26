@@ -1,4 +1,3 @@
-package primitive_types;
 
 public class BitTrial {
 

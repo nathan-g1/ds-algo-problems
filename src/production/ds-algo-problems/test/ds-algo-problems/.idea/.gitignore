@@ -1,0 +1,7 @@
+# Default ignored files
+/workspace.xml
+.idea/
+*.xml
+*.iml
+.name
+ds-algo-problems.iml
