@@ -1,4 +1,3 @@
-package sliding_window;
 
 public class ContinuousSubArrayAverage {
     public static double[] slidingWindowAvg(int[] arr, int k) {

@@ -1,5 +1,3 @@
-package array;
-
 import java.util.Arrays;
 
 public class CSP {
@@ -8,7 +6,8 @@ public class CSP {
         int[] a1 = {-1, 3, 8, 2, 9, 5};
         int[] a2 = {4, 1, 2, 10, 5, 20};
         int aTarget = 24;
-        // closestSumPair(a1, a2, aTarget) should return {5, 20} or {3, 20}
+        var val = closestSumPair(a1, a2, aTarget);
+        System.out.println(Arrays.toString(val)); // should return {5, 20} or {3, 20}
 
         int[] b1 = {7, 4, 1, 10};
         int[] b2 = {4, 5, 8, 7};
@@ -23,7 +22,7 @@ public class CSP {
         int[] d1 = {19, 14, 6, 11, -16, 14, -16, -9, 16, 13};
         int[] d2 = {13, 9, -15, -2, -18, 16, 17, 2, -11, -7};
         int dTarget = -15;
-        // closestSumPair(d1, d2, dTarget) should return {-16, 2}, {-9, -7}
+        // closestSumPair(d1, d2, dTarget); // should return {-16, 2}, {-9, -7}
     }
 
     // a1 and a2 are the given arrays, and target is the target sum.

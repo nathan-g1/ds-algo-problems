@@ -1,5 +1,3 @@
-package KS2016;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
@@ -32,7 +30,7 @@ public class CountryLeader {
             for (int j = 0; j < people; j++) {
                 String personName = "";
                 while (in.hasNextLine()) {
-                    personName += in.next();
+                    personName = personName.concat(in.next());
                 }
                 names.add(personName);
             }
