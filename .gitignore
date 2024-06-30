@@ -1,0 +1,9 @@
+production/
+.idea/
+
+# Default ignored files
+/workspace.xml
+*.xml
+*.iml
+.name
+ds-algo-problems.iml
