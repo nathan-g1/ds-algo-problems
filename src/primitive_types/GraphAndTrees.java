@@ -104,7 +104,7 @@ class TreeNode {
     }
 
     TreeNode(int data) {
-        this.val = val;
+        this.val = data;
     }
 
 }
