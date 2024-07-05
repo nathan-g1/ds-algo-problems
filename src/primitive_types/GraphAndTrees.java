@@ -2,6 +2,28 @@ import java.util.*;
 
 public class GraphAndTrees<T> {
 
+
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) return false;
+        ArrayList<Integer> leftSubtree = new ArrayList<>();
+        ArrayList<Integer> rightSubtree = new ArrayList<>();
+        preOrder(root.left, leftSubtree);
+        myOrder(root.right, rightSubtree);
+        return Arrays.equals(leftSubtree.toArray(), rightSubtree.toArray());
+    }
+
+    void preOrder(TreeNode root, ArrayList<Integer> list) {
+        preOrder(root.left, list);
+        list.add(root.val);
+        preOrder(root.right, list);
+    }
+
+    void myOrder(TreeNode root, ArrayList<Integer> list) {
+        preOrder(root.right, list);
+        list.add(root.val);
+        preOrder(root.left, list);
+    }
+
     public void traverseBFS (Node<T> root) {
         Queue<Node<T>> q = new LinkedList<>();
         q.add(root);
@@ -71,6 +93,20 @@ public class GraphAndTrees<T> {
             this.children = children;
         }
     }
+}
+
+class TreeNode {
+    int val;
+    TreeNode right, left;
+
+    TreeNode() {
+
+    }
+
+    TreeNode(int data) {
+        this.val = val;
+    }
+
 }
 
 
