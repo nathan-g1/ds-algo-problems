@@ -1,5 +1,6 @@
 /*
  * This solution class contains my work on Grind 75 Leetode questions.
+ * https://www.techinterviewhandbook.org/grind75
  * 
  * Created Date: Feb 11, 2025
  * Author: Nathan Lechamo
@@ -9,10 +10,12 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 public class Solution {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(twoSum(new int[] {2,7,11,15}, 9)));
+        isValid("()[]{}");
     }
 
     // #1: Two sum
@@ -47,5 +50,45 @@ public class Solution {
             }
         }
         return new int[] {0, 0}; // we could also throw an exception here
+    }
+
+    // #20: Valid Parenthesis
+    /*
+     * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+        An input string is valid if:
+
+        Open brackets must be closed by the same type of brackets.
+        Open brackets must be closed in the correct order.
+        Every close bracket has a corresponding open bracket of the same type.
+
+        Example 1:
+        Input: s = "()"
+        Output: true
+
+        Example 2:
+        Input: s = "()[]{}"
+        Output: true
+     */
+    static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (c == '{' || c == '(' || c == '[') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) return false;
+                char d = stack.pop();
+                if (d == '[' && c != ']') {
+                    return false;
+                }
+                if (d == '{' && c != '}') {
+                    return false;
+                }
+                if (d == '(' && c != ')') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }
