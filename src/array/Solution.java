@@ -197,4 +197,56 @@ public class Solution {
         }
         return maxProfit;
     }
+
+    // #125: Valid Palindrome
+    /*
+     * A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+        Given a string s, return true if it is a palindrome, or false otherwise.
+
+        
+
+        Example 1:
+
+        Input: s = "A man, a plan, a canal: Panama"
+        Output: true
+        Explanation: "amanaplanacanalpanama" is a palindrome.
+        Example 2:
+
+        Input: s = "race a car"
+        Output: false
+        Explanation: "raceacar" is not a palindrome.
+     */
+    public boolean isPalindrome(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            int val = (int) c;
+            if (isInNumericRange(val) || isInAlphabeticRange(val)) {
+                sb.append(Character.toLowerCase(c));
+            }
+        }
+        int left = 0;
+        int right = sb.length() - 1;
+
+        while (left <= right) {
+            if (sb.charAt(left) != sb.charAt(right)) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    boolean isInNumericRange(int v) {
+        int numericLowerRangeDecimalVal = 48;
+        int numericUpperRangeDecimalVal = 57;
+        return v >= numericLowerRangeDecimalVal && v <= numericUpperRangeDecimalVal;
+    }
+
+    boolean isInAlphabeticRange(int v) {
+        int alpLowerCaseRange[] = new int[]{97, 122};
+        int alpUpperCaseRange[] = new int[]{65, 90};
+
+        return (v >= alpLowerCaseRange[0] && v <= alpLowerCaseRange[1]) 
+            ||  (v >= alpUpperCaseRange[0] && v <= alpUpperCaseRange[1]);
+    }
 }
