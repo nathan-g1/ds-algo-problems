@@ -249,4 +249,24 @@ public class Solution {
         return (v >= alpLowerCaseRange[0] && v <= alpLowerCaseRange[1]) 
             ||  (v >= alpUpperCaseRange[0] && v <= alpUpperCaseRange[1]);
     }
+
+    // 226: Invert A Binary Tree
+    /*
+     * Given the root of a binary tree, invert the tree, and return its root.
+     */
+    public TreeNode invertTree(TreeNode root) {
+        TreeNode curr = root;
+        swap(curr);
+        return root;
+    }
+
+    void swap(TreeNode root) {
+        if (root == null) return;
+        TreeNode tempL = root.left;
+        TreeNode tempR = root.right;
+        root.right = tempL;
+        root.left = tempR;
+        invertTree(root.left);
+        invertTree(root.right);
+    }
 }
