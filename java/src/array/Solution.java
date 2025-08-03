@@ -35,8 +35,8 @@ public class Solution {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(twoSum(new int[] {2,7,11,15}, 9)));
-        isValid("()[]{}");
+        System.out.println(Arrays.toString("/hi/this/.../".split("/")));
+        // isValid("()[]{}");
     }
 
     // #1: Two sum
